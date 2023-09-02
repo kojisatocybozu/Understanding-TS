@@ -1,16 +1,44 @@
-let userInput: unknown;
-let userName: string;
+// const person: {
+//   name: string;
+//   age: number;
+//   hobbies: string[];
+//   role: [number, string];
+// } = {
+//   name: "yota",
+//   age: 30,
+//   hobbies: ["sports", "cooking"],
+//   role: [2, "authoer"],
+// };
 
-userInput = 5;
-userInput = "Max";
+// const ADMIN = 0;
+// const READ_ONLY = 1;
+// const AUTHOR = 2;
 
-if (typeof userInput === "string") {
-  userName = userInput;
+enum Role {
+  ADMIN = 5,
+  READ_ONLY = 100,
+  AUTHOR = 200,
 }
 
-function generateError(message: string, code: number): never {
-  throw { message: message, errorCode: code };
-}
+const person = {
+  name: "yota",
+  age: 30,
+  hobbies: ["sports", "cooking"],
+  role: Role.ADMIN,
+};
 
-const result = generateError("エラーが発生しました", 500);
-console.log(result);
+// person.role.push("admin");
+// person.role[1] = 10;
+// person.role = [0, "admin"];
+
+let favoriteActivities: any[];
+favoriteActivities = ["sports", "instlements", "reading book"];
+
+console.log(person.hobbies[0]);
+
+if (person.role === Role.ADMIN) {
+  console.log("管理者ユーザー");
+  for (const hobby of person.hobbies) {
+    console.log(hobby.toUpperCase());
+  }
+}
